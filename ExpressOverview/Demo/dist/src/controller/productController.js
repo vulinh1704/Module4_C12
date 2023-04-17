@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const productService_1 = __importDefault(require("../service/productService"));
 class ProductController {
     constructor() {
-        this.findAll = (req, res) => {
-            let listProduct = this.productService.getAll();
+        this.findAll = async (req, res) => {
+            let listProduct = await this.productService.getAll();
             res.render('index', { products: listProduct });
         };
         this.showFormAdd = (req, res) => {

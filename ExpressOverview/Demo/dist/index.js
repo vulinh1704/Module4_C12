@@ -6,7 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const router_1 = __importDefault(require("./src/router/router"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const app = (0, express_1.default)();
+const DB_URL = 'mongodb://localhost:27017/demo_connect';
+mongoose_1.default.connect(DB_URL).then(() => {
+    console.log('Connect Database Success');
+});
 app.set('views', './src/view');
 app.set('view engine', 'ejs');
 app.use(express_1.default.static('./public'));

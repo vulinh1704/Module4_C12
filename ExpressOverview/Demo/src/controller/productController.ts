@@ -8,8 +8,8 @@ class ProductController {
         this.productService = productService;
     }
 
-    findAll = (req: Request, res: Response) => {
-        let listProduct = this.productService.getAll();
+    findAll = async (req: Request, res: Response) => {
+        let listProduct = await this.productService.getAll();
         res.render('index', {products: listProduct});
     }
 
