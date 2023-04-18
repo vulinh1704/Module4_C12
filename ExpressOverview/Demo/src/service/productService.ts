@@ -5,8 +5,7 @@ class ProductService {
     }
 
     getAll = async () => {
-        let products = await Product.find();
-        console.log(products);
+        let products = await Product.find().populate('category', 'name');
         return products;
     }
 

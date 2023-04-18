@@ -1,8 +1,10 @@
 import {Router} from "express";
-import productController from "../controller/productController";
+import userController from "../controller/userController";
+import productRouter from "./productRouter";
 
 const router = Router();
-router.get('/products', productController.findAll);
-router.get('/create', productController.showFormAdd);
-router.post('/create', productController.addProduct)
+router.use('/products', productRouter);
+router.get('/users/login', userController.showFormLogin);
+
+router.post('/users/login', userController.login);
 export default router;

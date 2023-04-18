@@ -158,7 +158,7 @@
         <div class="col-lg-7 mb-5">
             <div class="contact-form">
                 <div id="success"></div>
-                <form method="post">
+                <form method="post" >
                     <div class="control-group">
                         <input type="text" class="form-control" id="name" name="name" placeholder="name"/>
                     </div>
@@ -173,6 +173,11 @@
                         <div id="imgDiv"></div>
                         <input type="hidden" class="form-control" name="image" placeholder="image" id="image"/>
                     </div>
+                    <select name="category">
+                        <% categories.forEach(item => {%>
+                            <option value="<%= item._id %>"><%= item.name%></option>
+                        <% }) %>
+                    </select>
                     <div>
                         <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Add</button>
                     </div>

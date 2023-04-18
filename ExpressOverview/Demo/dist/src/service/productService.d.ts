@@ -25,9 +25,9 @@
 /// <reference types="mongoose/types/inferschematype" />
 declare class ProductService {
     constructor();
-    getAll: () => Promise<(import("mongoose").Document<unknown, {}, import("../enitity/product").IProduct> & Omit<import("../enitity/product").IProduct & {
+    getAll: () => Promise<Omit<import("mongoose").Document<unknown, {}, import("../enitity/product").IProduct> & Omit<import("../enitity/product").IProduct & {
         _id: import("mongoose").Types.ObjectId;
-    }, never>)[]>;
+    }, never>, never>[]>;
     add: (product: any) => Promise<void>;
 }
 declare const _default: ProductService;
