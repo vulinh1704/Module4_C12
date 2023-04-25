@@ -4,7 +4,7 @@ declare class ProductController {
     private categoryService;
     constructor();
     findAll: (req: Request, res: Response) => Promise<void>;
-    addProduct: (req: Request, res: Response) => void;
+    addProduct: (req: Request, res: Response) => Promise<void>;
     edit: (req: Request, res: Response) => void;
     remove: (req: Request, res: Response) => void;
 }

@@ -4,7 +4,8 @@ import productRouter from "./productRouter";
 
 const router = Router();
 router.use('/products', productRouter);
-router.get('/users/login', userController.showFormLogin);
 
+router.get('/users/login', userController.showFormLogin);
 router.post('/users/login', userController.login);
+
 export default router;

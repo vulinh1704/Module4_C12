@@ -9,12 +9,10 @@ class ProductController {
     constructor() {
         this.findAll = async (req, res) => {
             let listProduct = await this.productService.getAll();
-            res.status(200).json({
-                listProduct: listProduct
-            });
+            res.status(200).json(listProduct);
         };
-        this.addProduct = (req, res) => {
-            this.productService.add(req.body);
+        this.addProduct = async (req, res) => {
+            await this.productService.add(req.body);
             if (!req.body.name) {
                 res.status(400).json({
                     message: 'name missing'

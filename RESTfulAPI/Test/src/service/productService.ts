@@ -1,4 +1,4 @@
-import {Product} from "../enitity/product";
+ import {Product} from "../enitity/product";
 import {AppDataSource} from "../data-source";
 import {ILike, Like} from "typeorm";
 
@@ -13,13 +13,9 @@ class ProductService {
         let products = await this.productRepository.find({
             relations: {
                 category: true,
-            }, where: {
-                category: {
-                    name: ILike("%B%")
-                }
-            },
+            }
         });
-        return products
+        return products;
     }
 
     add = async (product) => {

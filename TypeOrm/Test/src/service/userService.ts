@@ -4,13 +4,18 @@ import {AppDataSource} from "../data-source";
 
 class UserService {
     private userRepository;
+
     constructor() {
         this.userRepository = AppDataSource.getRepository(User);
     }
 
 
     checkUser = async (user) => {
-        let userFind = await this.userRepository.findOneBy({username: user.username, password: user.password});
+        // Promise : 3 trạng thái : thành công đưa data vào resole(data) , thất bại đưa lỗi vào reject(err)
+        let userFind = await this.userRepository.findOneBy(
+            {username: user.username, password: user.password}
+        );
+        // [] : find() ; {} : findOneBy
         return userFind;
     }
 

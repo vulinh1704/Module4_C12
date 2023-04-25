@@ -11,6 +11,7 @@ class UserController {
             res.render('users/login');
         };
         this.login = async (req, res) => {
+            let userInput = req.body;
             let user = await this.userService.checkUser(req.body);
             if (!user) {
                 res.redirect(301, '/users/login');

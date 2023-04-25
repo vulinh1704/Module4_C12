@@ -1,10 +1,5 @@
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
-export interface IUser {
-    username ?: string;
-    password ?: string;
-}
-
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
