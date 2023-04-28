@@ -13,7 +13,6 @@ class ProductController {
 
     findAll = async (req: Request, res: Response) => {
         let listProduct = await this.productService.getAll();
-        // json/xml
         res.status(200).json(listProduct)
     }
 

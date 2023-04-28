@@ -22,7 +22,6 @@
                 'Content-Type': 'application/json'
             },
             success: (products) => {
-                console.log(products)
                 let html = ``;
                 products.forEach(item => {
                     html += `<h1>${item.id} - Price : ${item.price}, Name : ${item.name}</h1>`
@@ -41,8 +40,6 @@
                             <button onclick="add()">Add</button>`
         $('#body').html(htmlFormAdd)
     }
-
-
     function add() {
         let price = $('#price').val();
         let category = $('#category').val();
@@ -59,7 +56,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:3000/products',
+            url: 'http://localhost:3000/products' ,
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -68,8 +65,8 @@
                 showHome();
             }
         })
-
     }
+
 </script>
 </body>
 </html>

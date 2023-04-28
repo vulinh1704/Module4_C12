@@ -15,6 +15,21 @@ data_source_1.AppDataSource.initialize().then(() => {
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)());
+app.use('/home/:id', function (req, res, next) {
+    if (req.params.id === '1') {
+        req.name = 'Hùng';
+        return next();
+    }
+    else {
+        res.status(403).json('Bạn không có quyền');
+    }
+}, function (req, res, next) {
+    res.json('Hello ' + req.name);
+});
+app.use('/home2', function (req, res) {
+    console.log(req.name);
+    res.json(req.name);
+});
 app.use('', router_1.default);
 app.listen(3000, () => {
     console.log('Server is running');
