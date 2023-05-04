@@ -1,7 +1,8 @@
 declare class UserService {
     private userRepository;
     constructor();
-    checkUser: (user: any) => Promise<any>;
+    addUser: (user: any) => Promise<any>;
+    checkUser: (user: any) => Promise<string>;
 }
 declare const _default: UserService;
 export default _default;

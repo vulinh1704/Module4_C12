@@ -19,16 +19,18 @@
             type: 'GET',
             url: 'http://localhost:3000/products',
             headers: {
-                'Content-Type': 'application/json'
-            },
-            success: (products) => {
-                let html = ``;
-                products.forEach(item => {
-                    html += `<h1>${item.id} - Price : ${item.price}, Name : ${item.name}</h1>`
-                })
-                $('#body').html(html)
-            }
-        })
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.
+
+    },
+        success: (products) => {
+            let html = ``;
+            products.forEach(item => {
+                html += `<h1>${item.id} - Price : ${item.price}, Name : ${item.name}</h1>`
+            })
+            $('#body').html(html)
+        }
+    })
     }
 
     function showFormAdd() {
@@ -40,6 +42,7 @@
                             <button onclick="add()">Add</button>`
         $('#body').html(htmlFormAdd)
     }
+
     function add() {
         let price = $('#price').val();
         let category = $('#category').val();
@@ -56,7 +59,7 @@
 
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:3000/products' ,
+            url: 'http://localhost:3000/products',
             headers: {
                 'Content-Type': 'application/json'
             },
